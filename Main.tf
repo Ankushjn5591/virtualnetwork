@@ -14,7 +14,7 @@ resource "azurerm_virtual_network" "vnet" {
 resource "azurerm_subnet" "subnet" {
    count = 3 
    name                = "${var.subname}-${count.index + 1}"
-  address_prefixes     = "[10.0.${count.index + 1}.0/24]"
+  address_prefixes     = "[10.0.$[count.index + 1].0/24]"
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
 }
